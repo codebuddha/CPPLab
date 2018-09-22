@@ -19,10 +19,12 @@ int main()
         int x = Q.front();
         std::cout << x << " -> ";
         Q.pop();
-        visited[x] = true;
         for(auto &j:adj[x])
             if(!visited[j])
+            {
                 Q.push(j);
+                visited[j] = true;
+            }
     }
     std::cout << "Fin.\n";
 }
