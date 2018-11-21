@@ -7,9 +7,9 @@ using std::cin;
 int MAX=9999;
 int tsp(vector<vector<int>> &adjm, int pos, int visited, vector<vector<int>> &state)
 {
-    if(visited == (1<<adjm.size())-1)//covered all vertices
-        return adjm[pos][0];//back to start, ie, 0
-    if(state[pos][visited] != MAX)//already visited position
+    if(visited == (1<<adjm.size())-1)// IF covered all vertices
+        return adjm[pos][0];// return back to start vertex, ie, 0
+    if(state[pos][visited] != MAX)// IF already visited position
         return state[pos][visited];
     for(int i=0; i<adjm.size(); i++)
     {
@@ -42,7 +42,7 @@ int main()
     n = adjm.size();
     vector<vector<int>> state(adjm.size());
     for(auto &parents: state)
-        parents = vector<int> ((1<<adjm.size())-1, MAX);
-
+        parents = vector<int> ((1<<n)-1, MAX);
+        
     cout << tsp(adjm, 0, 1, state) <<"\n";
 }
