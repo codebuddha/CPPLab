@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
+
 using vvi = std::vector<std::vector<int>>;
 int main()
 {
@@ -10,7 +12,7 @@ int main()
     do{
         std::cin >> x >> y;
         adj[x].push_back(y); 
-    }while(x>=0 && y>=0);
+    }while((x>=0 && y>=0) && x<n && y<n);
     std::queue<int> Q;
     std::vector<bool> visited(n);
     Q.push(0); visited[0] = true;
