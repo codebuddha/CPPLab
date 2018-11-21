@@ -1,3 +1,8 @@
+/*
+ * Matrix.hpp
+ * Created on: 21-11-2018
+ * Author: Abhirup
+*/
 #include <iostream>
 #include <vector>
 using std::vector;
@@ -61,7 +66,7 @@ public:
     }
     Matrix topleft_pad_even(int t, T x)
     {
-        Matrix<T> c (m + t, n + t, x);
+        Matrix<T> c (m + t, n + t, x);//padded Matrix
         c.assign(move(*this), t, c.m, t, c.n);
         return c;
     }
