@@ -1,8 +1,9 @@
 /*
- * num_occurrences.cpp
+ * missing_element_in_sequence.cpp
  * Created on: 29-11-2018
  * Author: Abhirup
 */
+
 #include<vector>
 #include<iostream>
 #include<stdio.h>
