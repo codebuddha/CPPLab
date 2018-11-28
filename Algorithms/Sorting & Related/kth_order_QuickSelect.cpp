@@ -14,7 +14,7 @@ int partition_fn(std::vector<int> &a, int start, int end)
     std::swap(a[start], a[pos-1]);
     return pos-1;
 }
-int k_th_largest(std::vector<int> &vec, int k)
+int kth_smallest(std::vector<int> &vec, int k)
 {
     int left=0, right=vec.size()-1;
     do{
@@ -38,5 +38,5 @@ int main()
     int k = 3;
     std::vector<int> v;
     v = std::vector<int> ({7, 10, 4, 3, 20, 15});
-    std::cout << "k-th: " << k_th_largest(v, k-1) << "\n";
+    std::cout << "k-th: " << kth_smallest(v, k-1) << "\n";
 }
