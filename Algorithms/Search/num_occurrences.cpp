@@ -12,14 +12,14 @@ using std::cout;
 std::pair<int, int> aux(vector<int> &vec, int num)
 {
     bool onlyocc = false;
-    int left = 0, right = vec.size()-1, mid, fans=-1, lans=-1;
+    int left = 0, right = vec.size()-1, mid, first_occ=-1, last_occ=-1;
     while(left <= right)
     {
         mid = (left + right)/2;
         // printf("left %d right %d mid %d\n", left, right, vec[mid]);
         if(vec[mid] == num)
         {
-            fans = mid;
+            first_occ = mid;
             right = mid-1;
         }
         else if(vec[mid] > num)
@@ -34,7 +34,7 @@ std::pair<int, int> aux(vector<int> &vec, int num)
         // printf("left %d right %d mid %d\n", left, right, vec[mid]);
         if(vec[mid] == num)
         {
-            lans = mid;
+            last_occ = mid;
             left = mid+1;
         }    
         else if(vec[mid] > num)
@@ -43,7 +43,7 @@ std::pair<int, int> aux(vector<int> &vec, int num)
             left = mid + 1;
     }
     // cout << ans << "\n";
-    return {fans, lans};
+    return {first_occ, last_occ};
 }
 int main()
 {
