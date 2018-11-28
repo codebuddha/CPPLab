@@ -22,7 +22,7 @@ vector<T> second_count(vector<T> &a, vector<T> &b)
         else 
         {
             c[k++] = b[j++];
-            count += m-i;
+            count += m-i; //inversion criteria 2
         }
     while(i < m)
         c[k++] = a[i++];
@@ -38,7 +38,7 @@ void first_count(vector<T> &vec)
         return;
     if(vec.size() == 2)
     {
-        if(vec[1] < vec[0])
+        if(vec[1] < vec[0])//inversion criteria 1
         {
             std::swap(vec[0], vec[1]);
             count++;
@@ -49,8 +49,8 @@ void first_count(vector<T> &vec)
     // now, for the recursive cases
     int mid = vec.size()/2;
     vector<T> 
-        leftvec = vector<T> (vec.begin(), vec.begin()+mid),
-        rightvec = vector<T> (vec.begin()+mid, vec.end());
+        leftvec (vec.begin(), vec.begin()+mid),
+        rightvec (vec.begin()+mid, vec.end());
     first_count(leftvec);
     first_count(rightvec);
     vec = second_count(leftvec, rightvec);
