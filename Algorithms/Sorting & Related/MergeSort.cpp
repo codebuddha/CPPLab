@@ -23,8 +23,6 @@ vector<T> merge(vector<T> &a, vector<T> &b)
         c[k++] = a[i++];
     while(j < n)
         c[k++] = b[j++];
-
-        
     return c;
 }
 template<typename T>
