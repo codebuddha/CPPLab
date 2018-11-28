@@ -23,16 +23,7 @@ vector<T> merge(vector<T> &a, vector<T> &b)
         c[k++] = a[i++];
     while(j < n)
         c[k++] = b[j++];
-    
-        // for(auto &i:a)
-        //     std:: cout << i << " ";
-        // std::cout << "  |  ";
-        // for(auto &i:b)
-        //     std:: cout << i << " ";
-        // std::cout << "\nmerged-> ";
-        // for(auto &i:c)
-        //     std:: cout << i << " ";
-        // std::cout << "\n";
+
         
     return c;
 }
@@ -48,8 +39,8 @@ void merge_sort(vector<T> &vec)
     }
     int mid = vec.size()/2;
     vector<T> 
-        leftvec = vector<T> (vec.begin(), vec.begin()+mid), 
-        rightvec = vector<T> (vec.begin()+mid, vec.end());
+        leftvec (vec.begin(), vec.begin()+mid), 
+        rightvec (vec.begin()+mid, vec.end());
     
     merge_sort(leftvec);
     merge_sort(rightvec);
