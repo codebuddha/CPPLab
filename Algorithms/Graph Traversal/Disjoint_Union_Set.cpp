@@ -76,7 +76,24 @@ int main()
     for(int i=0; i<n; i++)
         ver.push_back(Node<int>(i));
     cout << "\n";
-    for(auto &i : ver)
+    for(Node<int> &i : ver)
         i.display();
-
+    cout << "\n";
+    for(Node<int> i : ver)
+        i.display();
+    cout << "doubt.. why is the last output without & different from the output where the for has the &????\n";
+    
 }
+// 3 4
+// Rank:0 Data:0 ParentData:0
+// Rank:0 Data:1 ParentData:1
+// Rank:0 Data:2 ParentData:2
+
+// Rank:0 Data:0 ParentData:0
+// Rank:0 Data:1 ParentData:0
+// Rank:0 Data:2 ParentData:0
+
+// Rank:0 Data:0 ParentData:0
+// Rank:0 Data:1 ParentData:1
+// Rank:0 Data:2 ParentData:2
+// doubt.. why is the last output without & different from the output where the for has the &????
