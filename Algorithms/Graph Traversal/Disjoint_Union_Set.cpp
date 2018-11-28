@@ -76,10 +76,10 @@ int main()
     for(int i=0; i<n; i++)
         ver.push_back(Node<int>(i));
     cout << "\n";
-    for(Node<int> &i : ver)
+    for(Node<int> &i : ver)//for with &
         i.display();
     cout << "\n";
-    for(Node<int> i : ver)
+    for(Node<int> i : ver)//for without &
         i.display();
     cout << "doubt.. why is the last output without & different from the output where the for has the &????\n";
     
