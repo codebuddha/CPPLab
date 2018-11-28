@@ -1,70 +1,57 @@
-/*
- * QuickMedian.cpp
- * Created on: 21-11-2018
- * Author: Abhirup
-*/
 #include <iostream>
 #include <stdio.h>
 #include <vector>
+using std::vector;
+using std::cin;
+using std::cout;
 
-int partition_fn(std::vector<int> &a, int start, int end)
+template<typename T>
+int partition_fn(vector<T> &vec, int start, int end)
 {
-    int pivot = a[start], pos = start+1;
+    T pivot = vec[0]; 
+    int pos = start+1;
     for(int i=start+1; i<=end; i++)
-        if(a[i] < pivot)
-        {
-            std::swap(a[i], a[pos]);
-            pos++;  
-        }    
-    std::swap(a[start], a[pos-1]);
+        if(vec[i] < pivot)
+            std::swap(vec[pos++], vec[i]);
+    std::swap(vec[start], vec[pos-1]);
     return pos-1;
 }
-int k_th_largest(std::vector<int> &vec, int k, int start, int end)
+template<typename T>
+void kth_smallest(vector<T> &vec, int k, int left, int right)
 {
-    if (end > vec.size()-1 && start < 0) 
+//    int left = 0, right = vec.size()-1;
+    do
     {
-        std::cout << "Invalid start, end parameters\n";
-        return 0;
-    }  
-    int left=start, right=end;
-    do{
         int pos = partition_fn(vec, left, right);
-        printf("current left %d right %d pos %d\n", left, right, pos);
+//        printf("left %d right %d pos %d\n", left, right, pos);
+        for(auto &i : vec)
+            cout << i << " ";
+        cout << "\n";
         if(pos == k)
-        {
-            for(auto &i:vec)
-                std::cout << i << " ";
-            printf("found mid: %d\n", vec[pos]);
-            return vec[pos]; 
-        }
-        else if(pos > k)
-        {
-            right = pos - 1;
-        }
+            return;
         else if(pos < k)
-        {
             left = pos + 1;
-        }
-    }while(left <= right);
+        else 
+            right = pos - 1;
+        
+    } while (left <= right);
 }
-float get_median(std::vector<int> &vec)
+template<typename T>
+double get_median(vector<T> &vec)
 {
     int len = vec.size();
-    int mid = k_th_largest(vec, len/2, 0, vec.size()-1);
+    kth_smallest(vec, len/2, 0, len-1);
+    double mid = vec[len/2];
     if(len % 2 == 0)
     {
-        int pre_mid = k_th_largest(vec, len/2-1, 0, len/2);
-        return (pre_mid + mid)/2.0;
+        kth_smallest(vec, len/2-1, 0, len/2);
+        return (mid + vec[len/2-1])/2.0;
     }
-    else{
-        return mid;
-    }
+    return mid;
 }
 int main()
 {
-    int k = 3;
     std::vector<int> v;
     v = std::vector<int> ({10, 23, 7, 2, 0, 500, 81, 9});
     std::cout << "median: " << get_median(v) << "\n";
-    
 }

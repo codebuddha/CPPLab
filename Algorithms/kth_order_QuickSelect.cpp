@@ -32,8 +32,6 @@ int k_th_largest(std::vector<int> &vec, int k)
             left = pos + 1;
         }
     }while(left <= right);
-    printf("l:%d r:%d\n", left, right);
-
 }
 int main()
 {

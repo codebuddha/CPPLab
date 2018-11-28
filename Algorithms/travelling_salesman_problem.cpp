@@ -13,16 +13,14 @@ int tsp(vector<vector<int>> &adjm, int pos, int visited, vector<vector<int>> &st
         return state[pos][visited];
     for(int i=0; i<adjm.size(); i++)
     {
-        if(i==pos // same position  
-        || (visited & (1<<i)))// or, already visited state
+        if(i==pos /*same position*/|| (visited & (1<<i))) /*or, already visited state*/
             continue;
-        
         int distance = adjm[pos][i] + tsp(adjm, i, visited | (1<<i), state);
         if(distance < state[pos][visited])
-            {
-                state[pos][visited] = distance;
-                cout << "changed at pos:" << pos << " mask:" << std::bitset<8>(visited) << '\n';
-            }
+        {
+            state[pos][visited] = distance;
+            cout << "changed at pos:" << pos << " mask:" << std::bitset<8>(visited) << '\n';
+        }
     }
     return state[pos][visited];
 }
@@ -43,6 +41,6 @@ int main()
     vector<vector<int>> state(adjm.size());
     for(auto &parents: state)
         parents = vector<int> ((1<<n)-1, MAX);
-        
+
     cout << tsp(adjm, 0, 1, state) <<"\n";
 }
