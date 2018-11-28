@@ -11,20 +11,25 @@ using std::cin;
 using std::cout;
 template<typename T>
 struct Node{
-    int rank;
+    int rank=0;
     T data;
-    struct Node<T>* parent;
+    struct Node<T>* parent=this;
     Node (T x)
-    :rank(0), data(x), parent(this)
     {
-        display();
+        data = x;
+        // display();
     }
     Node (int r, T x)
-    :rank(r), data(x), parent(this)
-    {}
+    {
+        rank = r;
+        data = x;
+    }
     Node (int r, T x, Node *par)
-    :rank(r), data(x), parent(par)
-    {}
+    {
+        rank = r;
+        data = x;
+        parent = par;
+    }
     Node (struct Node<T> *p)
     {
         this = p;
@@ -76,24 +81,6 @@ int main()
     for(int i=0; i<n; i++)
         ver.push_back(Node<int>(i));
     cout << "\n";
-    for(Node<int> &i : ver)//for with &
-        i.display();
-    cout << "\n";
     for(Node<int> i : ver)//for without &
         i.display();
-    cout << "doubt.. why is the last output without & different from the output where the for has the &????\n";
-    
 }
-// 3 4
-// Rank:0 Data:0 ParentData:0
-// Rank:0 Data:1 ParentData:1
-// Rank:0 Data:2 ParentData:2
-
-// Rank:0 Data:0 ParentData:0
-// Rank:0 Data:1 ParentData:0
-// Rank:0 Data:2 ParentData:0
-
-// Rank:0 Data:0 ParentData:0
-// Rank:0 Data:1 ParentData:1
-// Rank:0 Data:2 ParentData:2
-// doubt.. why is the last output without & different from the output where the for has the &????
