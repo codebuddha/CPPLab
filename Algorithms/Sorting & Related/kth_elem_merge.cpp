@@ -23,21 +23,21 @@ int kth(viI a1, viI a2, viI b1, viI b2, int k)
     if(m1 + m2 < k)
     {
         if(*(a1+m1) > *(b1+m2)){
-                cout << "case1\n";
+                // cout << "case1\n";
             return kth(a1, a2, b1+m2+1, b2, k-m2-1);
                 }
         else{
-                cout << "case2\n";
+                // cout << "case2\n";
             return kth(a1+m1+1, a2, b1, b2, k-m1-1);
         }
     }
     else
     {
         if(*(a1+m1) > *(b1+m2)){
-                cout << "case3\n";
+                // cout << "case3\n";
             return kth(a1, a1+m1, b1, b2, k);}
         else{
-                cout << "case4\n";
+                // cout << "case4\n";
             return kth(a1, a2, b1, b1+m2, k);}
     }
 }
