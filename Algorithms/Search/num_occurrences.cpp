@@ -11,7 +11,6 @@ using std::cin;
 using std::cout;
 std::pair<int, int> aux(vector<int> &vec, int num)
 {
-    bool onlyocc = false;
     int left = 0, right = vec.size()-1, mid, first_occ=-1, last_occ=-1;
     while(left <= right)
     {
