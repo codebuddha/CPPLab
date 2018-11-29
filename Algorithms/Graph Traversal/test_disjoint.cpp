@@ -2,6 +2,7 @@
  * test_disjoint.cpp
  * Created on: 28-11-2018
  * Author: Abhirup
+ * Hackerrank link: https://www.hackerrank.com/contests/data-structure-tasks-binary-tree-union-find/challenges/connected-component
 */
 #include<iostream>
 #include<stdio.h>
